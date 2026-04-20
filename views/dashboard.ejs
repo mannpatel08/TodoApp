@@ -1,0 +1,89 @@
+<%- include('partials/header') %>
+
+<div class="row mb-4 fade-in">
+    <div class="col-md-3">
+        <div class="glass-card stat-card p-4 text-center">
+            <h6 class="text-secondary small text-uppercase fw-bold">Total Tasks</h6>
+            <h2 class="mb-0"><%= stats.total %></h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="glass-card stat-card p-4 text-center">
+            <h6 class="text-secondary small text-uppercase fw-bold">Pending</h6>
+            <h2 class="mb-0 text-warning"><%= stats.pending %></h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="glass-card stat-card p-4 text-center">
+            <h6 class="text-secondary small text-uppercase fw-bold">In Progress</h6>
+            <h2 class="mb-0 text-primary"><%= stats.inProgress %></h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="glass-card stat-card p-4 text-center">
+            <h6 class="text-secondary small text-uppercase fw-bold">Completed</h6>
+            <h2 class="mb-0 text-success"><%= stats.completed %></h2>
+        </div>
+    </div>
+</div>
+
+<div class="glass-card p-4 fade-in">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-0 fw-bold">Task Management List</h4>
+        <div>
+            <span class="text-muted small">Real-Time Update Storage</span>
+        </div>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead class="text-secondary small text-uppercase">
+                <tr>
+                    <th>ID</th>
+                    <th>Task Details</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tasks.forEach(task => { %>
+                <tr>
+                    <td><span class="text-muted small">#<%= task.id.toString().slice(-4) %></span></td>
+                    <td>
+                        <div class="fw-bold"><%= task.title %></div>
+                        <div class="text-muted small"><%= task.description %></div>
+                    </td>
+                    <td>
+                        <span class="priority-<%= task.priority.toLowerCase() %>">
+                            ● <%= task.priority %>
+                        </span>
+                    </td>
+                    <td>
+                        <a href="/status-cycle/<%= task.id %>" class="text-decoration-none">
+                            <span class="badge rounded-pill badge-<%= task.status.toLowerCase().replace(' ', '') %>">
+                                <%= task.status %>
+                            </span>
+                        </a>
+                    </td>
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <a href="/edit/<%= task.id %>" class="btn btn-sm btn-outline-primary px-3">Edit</a>
+                            <a href="/delete/<%= task.id %>" class="btn btn-sm btn-outline-danger px-3" onclick="return confirm('Delete this task?')">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                <% }) %>
+                <% if (tasks.length === 0) { %>
+                <tr>
+                    <td colspan="5" class="text-center py-5">
+                        <div class="text-muted">No tasks found. Click "New Task" to get started!</div>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

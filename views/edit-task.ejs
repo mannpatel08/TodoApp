@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+<div class="row justify-content-center fade-in">
+    <div class="col-md-6">
+        <div class="glass-card p-5">
+            <div class="d-flex align-items-center mb-4">
+                <a href="/" class="btn btn-sm btn-light me-3">←</a>
+                <h3 class="fw-bold mb-0">Edit Task Details</h3>
+            </div>
+            
+            <form action="/edit/<%= task.id %>" method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Task Title</label>
+                    <input type="text" name="title" class="form-control" value="<%= task.title %>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Description</label>
+                    <textarea name="description" class="form-control" rows="3"><%= task.description %></textarea>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <label class="form-label fw-semibold">Priority</label>
+                        <select name="priority" class="form-select">
+                            <option value="Low" <%= task.priority === 'Low' ? 'selected' : '' %>>Low</option>
+                            <option value="Medium" <%= task.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+                            <option value="High" <%= task.priority === 'High' ? 'selected' : '' %>>High</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label class="form-label fw-semibold">Status</label>
+                        <select name="status" class="form-select">
+                            <option value="Pending" <%= task.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                            <option value="In Progress" <%= task.status === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+                            <option value="Completed" <%= task.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary py-2">Update Changes</button>
+                    <a href="/delete/<%= task.id %>" class="btn btn-outline-danger" onclick="return confirm('Permanent delete?')">Delete Task</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
