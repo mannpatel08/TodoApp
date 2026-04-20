@@ -64,28 +64,7 @@ Pending → In Progress → Completed
 
 ---
 
-## 📁 Project Structure
 
-```
-TodoApp
-│── views
-│   ├── partials
-│   │   ├── header.ejs
-│   │   ├── footer.ejs
-│   │
-│   ├── dashboard.ejs
-│   ├── add-task.ejs
-│   ├── edit-task.ejs
-│
-│── public
-│   ├── css
-│   │   └── style.css
-│
-│── app.js
-│── package.json
-```
-
----
 
 ## ⚙️ Installation & Setup
 
