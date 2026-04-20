@@ -10,7 +10,7 @@ This project simulates a real-world productivity system where users can:
 - Edit task details
 - Delete tasks
 
-- <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5ee09f50-72ee-4252-b2c1-9168a6bbbfcb" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5ee09f50-72ee-4252-b2c1-9168a6bbbfcb" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3fc8019c-eaee-4ed5-bb45-c47bcecf0344" />
 
 
