@@ -170,7 +170,7 @@ http://localhost:3000
 ---
 
 ## 👨‍💻 Author
-- DHruv Surti
+- Mann Patel
 
 ---
 
